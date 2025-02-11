@@ -1,0 +1,226 @@
+\documentclass[oneside]{book}
+% % % % % % % % % % % % % % % % % % % 
+%
+%  USEPACKAGES; kept minimal, these can be ammended but not removed.
+%
+% % % % % % % % % % % % % % % % % % %
+\usepackage{fancyhdr}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{longtable}
+\usepackage{listings}
+\usepackage[acronym]{glossaries}
+\usepackage{multirow}
+\usepackage{amsmath}
+%
+% Add other packages here
+%
+
+% % % % % % % % % % % % % % % % % % %
+% 
+% DEFINITIONS FILE
+% Change Values of commands in file: "definitions-thesis.tex"
+%
+% % % % % % % % % % % % % % % % % % %
+\input{definitions}
+
+% % % % % % % % % % % % % % % % % % %
+%
+% needed for glossary
+% comment out as appropriate
+% optional
+%
+% % % % % % % % % % % % % % % % % % %
+\makeglossaries
+\setacronymstyle{long-short}
+\input{glossary}
+
+\begin{document}
+\frontmatter
+% % % % % % % % % % % % % % % % % % %
+% 
+%	TITLEPAGE 
+%	DO NOT CHANGE
+%	MANDATORY
+%
+% % % % % % % % % % % % % % % % % % %
+\begin{titlepage}
+\begin{center}
+	{\huge \thesisTitle \\}
+	%comment subtitle out
+	{\large \thesisSubTitle\\}	
+	\vfill
+	\includegraphics[scale=0.4]{frontmatter/mdxSmall} 
+	\vfill
+	\textbf{\authorName } \\ 
+	\deptName \\
+	\uniName \\
+	\campus
+	\vfill
+	Module Code: \moduleCode \\
+	Module Leader: \moduleLeader \\
+	\vfill
+	This thesis is submitted for the degree of \\
+	\degree \\
+	\degreeTitle
+	\vfill
+	\monthYear
+\end{center}
+
+\end{titlepage}
+\newpage
+
+% % % % % % % % % % % % % % %
+%
+%	DECLARATION PAGE - 
+%	DO NOT EDIT
+%	MANDATORY
+%	File: frontmatter/declarations.tex
+%	Unnecessary since electronic submission requires this
+%	Usefule to keep this here for other purposes
+%	Simply uncomment
+% % % % % % % % % % % % % % %
+%\chapter*{Declaration}
+%	\input{frontmatter/declaration}
+%	%adds the declaration to the table of contents
+%	\addcontentsline{toc}{section}{Declaration}
+%	\newpage
+%
+% % % % % % % % % % % % % % %
+%
+%	ABSTRACT
+%	EDIT
+%	MANDATORY
+%	File: frontmatter/abstract.tex
+%	
+% % % % % % % % % % % % % % %
+\chapter*{Abstract}
+	\input{frontmatter/abstract}
+	%adds the abstract to the table of contents
+	\addcontentsline{toc}{section}{Abstract}
+
+% % % % % % % % % % % % % % % %
+%
+%	AKNOWLEDGEMENTS
+%	EDIT
+%	OPTIONAL
+%	File: frontmatter/acknowledgements.tex 
+%
+% % % % % % % % % % % % % % % %
+\chapter*{Acknowledgements}
+	\input{frontmatter/acknowledgements}
+	%adds acknowledgements to the table of contents
+	\addcontentsline{toc}{section}{Acknowledgements}
+	\newpage
+
+% % % % % % % % % % % % % % % %
+%
+%	TABLE OF CONTENTS
+%	DO NOT EDIT	
+%	AUTOMATICALLY GENERATED
+%	MANDATORY	
+%
+% % % % % % % % % % % % % % % %
+\tableofcontents
+
+% % % % % % % % % % % % % % % %
+%
+%	LIST OF FIGURES 
+%	EDIT AS APPROPRIATE
+%	AUTOMATICALLY GENERATED
+%	OPTIONAL	
+%
+% % % % % % % % % % % % % % % %
+\listoffigures
+
+% % % % % % % % % % % % % % % %
+%
+%	LIST OF TABLES 
+%	EDIT AS APPROPRIATE
+%	AUTOMATICALLY GENERATED
+%	OPTIONAL	
+%
+% % % % % % % % % % % % % % % %
+\listoftables
+
+% % % % % % % % % % % % % % % %
+%
+%	GLOSSARY 
+%	EDIT AS APPROPRIATE
+%	AUTOMATICALLY GENERATED
+%	OPTIONAL	
+%	requires lines 38-39 uncommented
+%
+% % % % % % % % % % % % % % % %
+\printglossary[title=Acronyms, type=\acronymtype]
+\printglossary
+
+\mainmatter
+% % % % % % % % % % % % % % % % % %
+%
+%	HEADERS & FOOTERS
+%	DO NOT EDIT
+%	MANDATORY
+%
+% % % % % % % % % % % % % % % % % % %
+\pagestyle{fancy}
+\rhead{Chapter \thechapter}
+\lhead{\empty}
+\lfoot{\empty}
+\cfoot{\thepage}
+\rfoot{\empty}
+
+% % % % % % % % % % % % % % % %
+%
+% 	CONTENT
+% 	EDIT
+% % % % % % % % % % % % % % % %
+\chapter{Introduction}
+\input{ch1/ch1}
+
+\chapter{Literature Review}
+\input{ch2/ch2}
+
+\chapter{Method}
+\input{ch3/ch3}
+
+\chapter{Analysis \& Results}
+\input{ch4/ch4}
+
+\chapter{Conclusions}
+\input{ch5/ch5}
+
+% % % % % % % % % % % % % % % %
+%
+% 	BIBLIOGRAPHY 
+%	MANDATORY 
+% 	Use basic BiBTex options, IEEE-like numbered references
+%	bib style: IEEEtranS.bst
+% 	file: references.tex
+%
+% % % % % % % % % % % % % % % %
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{IEEEtranS}
+\bibliography{references}
+
+% % % % % % % % % % % % % % % %
+%
+% 	BACKMATTER		
+%	OPTIONAL	
+% 	file: backmatter/meetings.pdf 
+%
+% % % % % % % % % % % % % % % %
+\appendix
+\part*{Appendices}
+\addcontentsline{toc}{part}{Appendices}
+
+\chapter{Correspondence with Supervisor}
+%include pdf file, "meetings.pdf". 
+%The options include only page 1, because it is already a4, it is scale down to 0.75. 
+\includepdf[pages=1,scale=0.75]{backmatter/meetings}
+\chapter{Ethical Approval}
+\includepdf[pages=-, scale=0.75]{backmatter/ethicsCompleted}
+
+\end{document}
